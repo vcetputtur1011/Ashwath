@@ -23,6 +23,15 @@
   scroll-behavior: smooth;
 }
 
+/* RGB fallbacks for utility classes */
+:root {
+  --color-accent-rgb: 69, 240, 221;
+  --color-accent-soft-rgb: 143, 250, 239;
+  --color-signal-rgb: 139, 124, 250;
+  --color-copper-rgb: 255, 184, 107;
+  --color-ink-rgb: 5, 7, 13;
+}
+
 html, body, #root {
   background: #05070d;
   color: #ededed;
@@ -290,3 +299,29 @@ body {
 
 .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
 .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+/* Lightweight utility fallbacks (names with slashes are escaped) */
+.bg-ink { background-color: var(--color-ink) !important; }
+.bg-ink\/40 { background-color: rgba(var(--color-ink-rgb), 0.4) !important; }
+.bg-ink\/70 { background-color: rgba(var(--color-ink-rgb), 0.7) !important; }
+.bg-ink\/95 { background-color: rgba(var(--color-ink-rgb), 0.95) !important; }
+.text-ink { color: var(--color-ink) !important; }
+
+.bg-accent { background-color: var(--color-accent) !important; }
+.bg-accent\/10 { background-color: rgba(var(--color-accent-rgb), 0.1) !important; }
+.bg-accent\/15 { background-color: rgba(var(--color-accent-rgb), 0.15) !important; }
+.bg-accent\/20 { background-color: rgba(var(--color-accent-rgb), 0.2) !important; }
+.bg-accent\/40 { background-color: rgba(var(--color-accent-rgb), 0.4) !important; }
+.bg-accent\/60 { background-color: rgba(var(--color-accent-rgb), 0.6) !important; }
+.text-accent { color: var(--color-accent) !important; }
+.border-accent { border-color: rgba(var(--color-accent-rgb), 0.35) !important; }
+
+.bg-signal\/10 { background-color: rgba(var(--color-signal-rgb), 0.1) !important; }
+
+/* helper for small glass gradients used as text backgrounds */
+.bg-gradient-to-br-from-accent-to-signal {
+  background: linear-gradient(135deg, rgba(var(--color-accent-rgb),1) 0%, rgba(var(--color-signal-rgb),1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
